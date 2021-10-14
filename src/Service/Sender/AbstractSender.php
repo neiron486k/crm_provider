@@ -18,7 +18,7 @@ abstract class AbstractSender implements SenderInterface
         $this->httpClient = $httpClient;
     }
 
-    public function setConfig(array $config): void
+    final public function setConfig(array $config): void
     {
         if (!$this->checkConfig($config)) {
             throw new InvalidConfigurationException('Invalid config for ' . $this->getTag());
