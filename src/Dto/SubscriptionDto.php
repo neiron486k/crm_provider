@@ -6,9 +6,6 @@ namespace App\Dto;
 
 final class SubscriptionDto
 {
-    private array $config;
-    private string $alias;
-
     public function getConfig(): array
     {
         return [

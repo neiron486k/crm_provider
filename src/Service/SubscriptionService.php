@@ -8,7 +8,7 @@ use App\Dto\SubscriptionDto;
 
 final class SubscriptionService
 {
-    public function getSubscriptionByAlias(string $alias): SubscriptionDto
+    public function getSubscriptionByAlias(string $alias): ?SubscriptionDto
     {
         return new SubscriptionDto();
     }

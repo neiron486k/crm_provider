@@ -40,6 +40,9 @@ final class CrmService
         //@todo implement logic here with queue
     }
 
+    /**
+     * @return SenderInterface[]
+     */
     public function getSenders(LeadDto $leadDto): array
     {
         $subscription = $this->subscriptionService->getSubscriptionByAlias($leadDto->getAlias());
