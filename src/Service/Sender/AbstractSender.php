@@ -4,24 +4,19 @@ declare(strict_types=1);
 
 namespace App\Service\Sender;
 
-use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
+use App\Exception\InvalidConfigException;
 
-abstract class AbstractSender implements SenderInterface
+abstract class AbstractSender implements ConfigurableSenderInterface
 {
     protected array $config;
 
-    protected HttpClientInterface $httpClient;
-
-    public function __construct(HttpClientInterface $httpClient)
-    {
-        $this->httpClient = $httpClient;
-    }
-
+    /**
+     * @throws InvalidConfigException
+     */
     final public function setConfig(array $config): void
     {
         if (!$this->checkConfig($config)) {
-            throw new InvalidConfigurationException('Invalid config for ' . $this->getTag());
+            throw new InvalidConfigException('Invalid config for ' . $this->getTag());
         }
 
         $this->config = $config;

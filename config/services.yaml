@@ -17,6 +17,6 @@ services:
         App\Service\Sender\SenderInterface:
             tags: ['app.crm_sender']
             
-    App\Service\CrmManager:
+    App\Service\CrmService:
         arguments:
             - !tagged_iterator app.crm_sender

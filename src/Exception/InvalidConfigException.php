@@ -6,6 +6,6 @@ namespace App\Exception;
 
 use Exception;
 
-final class incorrectConfigException extends Exception
+final class InvalidConfigException extends Exception
 {
 }
